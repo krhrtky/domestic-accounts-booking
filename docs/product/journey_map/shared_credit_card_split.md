@@ -7,3 +7,28 @@
 | 利用（利用初期）   | ・家計簿アプリをダウンロード<br>・支払い時に「誰が使用」か記録     | ・使い慣れない、入力が面倒<br>・家族も巻き込む必要がある     | アプリUI、通知、チュートリアル            | 使用者の選択を簡単にするUI、ワンタップで登録                |
 | 精算（利用中）     | ・月末に集計<br>・自分の使用分だけを確認                            | ・金額を手計算するのが面倒<br>・精算ミスがあると気まずい     | アプリ内の集計画面、支払い履歴の共有       | 使用者ごとの支出サマリー、請求メモ機能                      |
 | 振り返り（After）  | ・支出パターンを見る<br>・来月の予算を調整                         | ・節約意識が弱まる<br>・改善点が見えにくい                   | レポート画面、通知                        | カテゴリ別・人別の週/月次レポート、自動予算提案              |
+
+## User Goals
+- To clearly understand and manage individual spending within a shared credit card.
+- To ensure fair and accurate expense splitting among family members.
+
+## Pain Points
+- Difficulty in tracking who spent what amount.
+- Manual calculations leading to errors and misunderstandings.
+- Lack of transparency causing stress and potential conflicts.
+
+## Touchpoints
+- App notifications for recording expenses.
+- Monthly summary reports.
+- User-friendly interface for selecting the spender.
+
+## Diagrams
+![User Journey](../images/user_journey_shared_credit_card_split.png)
+
+## Rationale
+The shared credit card split feature aims to simplify and clarify the process of managing shared expenses, reducing stress and potential conflicts within families.
+
+## Related Features or Future Enhancements
+- Integration with budgeting tools.
+- Automated reminders for recording expenses.
+- Enhanced reporting capabilities.
