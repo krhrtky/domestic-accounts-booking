@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  # Database service
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: app
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: application_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./docs/schemas/db:/docker-entrypoint-initdb.d
+
+  # OpenAPI Generator service
+  openapi-generator:
+    image: openapitools/openapi-generator-cli:v6.6.0
+    volumes:
+      - ./docs/schemas/api:/local/api
+      - ./backend/api/src/main/kotlin:/local/generated
+    command: >
+      generate
+      -i /local/api/openapi.yaml
+      -g kotlin-spring
+      -o /tmp/generated
+      --additional-properties=interfaceOnly=true,useTags=true,enumPropertyNaming=UPPERCASE,serializationLibrary=jackson,dateLibrary=java8
+      && cp -r /tmp/generated/src/main/kotlin/* /local/generated/
+
+volumes:
+  postgres_data:

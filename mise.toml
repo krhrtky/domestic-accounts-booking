@@ -1,0 +1,3 @@
+[tools]
+java = "openjdk-21"
+node = "22.14.0"
