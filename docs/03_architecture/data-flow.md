@@ -30,4 +30,4 @@
 
 - [システム構成図](./system-design.md)
 - [コンポーネント間の関係性](./components.md)
-- [API仕様](../05_api/overview.md)
+- [API仕様](../05_domain-model/overview.md)
