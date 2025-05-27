@@ -1,0 +1,26 @@
+[versions]
+kotlin = "2.1.20"
+springBoot = "3.5.0"
+springDependencyManagement = "1.1.5"
+kotlinResult = "1.1.18" # As per docs/02_tech-stack/backend.md (though not explicitly used yet)
+# Add other versions as they become necessary, e.g., jooq, kotest, etc.
+
+[libraries]
+kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
+kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
+kotlinResult = { module = "com.michael-bull.kotlin-result:kotlin-result", version.ref = "kotlinResult" }
+
+spring-boot-starter = { module = "org.springframework.boot:spring-boot-starter", version.ref = "springBoot" }
+spring-boot-starter-web = { module = "org.springframework.boot:spring-boot-starter-web", version.ref = "springBoot" }
+spring-boot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test", version.ref = "springBoot" }
+spring-boot-starter-dataJpa = { module = "org.springframework.boot:spring-boot-starter-data-jpa", version.ref = "springBoot" } # Example for infra
+spring-boot-starter-jooq = { module = "org.springframework.boot:spring-boot-starter-jooq", version.ref = "springBoot" } # Example for infra, if JOOQ is managed by Spring Boot starters
+
+# Dependencies managed by Spring Boot BOM don't strictly need version here once BOM is imported,
+# but defining them can be useful for clarity or overriding.
+# For example, Spring Boot's BOM will manage versions for most 'org.springframework.boot' modules.
+
+[plugins]
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+spring-boot = { id = "org.springframework.boot", version.ref = "springBoot" }
+spring-dependency-management = { id = "io.spring.dependency-management", version.ref = "springDependencyManagement" }
