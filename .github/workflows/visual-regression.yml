@@ -1,0 +1,32 @@
+name: Visual Regression Testing
+
+on: [push]
+
+jobs:
+  lost_pixel_check:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./frontend
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+          cache: "npm"
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Serve Ladle
+        run: npm run ladle &
+
+      - name: Wait for Ladle to start
+        run: sleep 15 # Give Ladle some time to start up
+
+      - name: Lost Pixel
+        uses: lost-pixel/lost-pixel@v3.4.0
