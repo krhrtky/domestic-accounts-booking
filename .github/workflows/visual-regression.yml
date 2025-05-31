@@ -1,0 +1,36 @@
+name: Visual Regression Testing
+
+on: [push]
+
+jobs:
+  lost_pixel_check:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./frontend
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+          cache: "npm"
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build story
+        run: npm run ladle:build
+
+      - name: Serve story
+        run: npm run ladle:serve &
+
+      - name: Lost Pixel
+        uses: lost-pixel/lost-pixel@v3.4.0
+        env:
+          LOST_PIXEL_CONFIG_DIR: frontend
+          LOST_PIXEL_API_KEY: ${{ secrets.LOST_PIXEL_API_KEY }}
+          LOST_PIXEL_PROJECT_ID: ${{ secrets.LOST_PIXEL_PROJECT_ID }}
