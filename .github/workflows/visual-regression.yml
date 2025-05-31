@@ -25,6 +25,9 @@ jobs:
       - name: Build story
         run: npm run ladle:build
 
+      - name: Serve story
+        run: npm run ladle:serve &
+
       - name: Lost Pixel
         uses: lost-pixel/lost-pixel@v3.4.0
         env:
