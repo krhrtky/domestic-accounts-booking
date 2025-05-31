@@ -33,3 +33,4 @@ jobs:
         env:
           LOST_PIXEL_CONFIG_DIR: frontend
           LOST_PIXEL_API_KEY: ${{ secrets.LOST_PIXEL_API_KEY }}
+          LOST_PIXEL_PROJECT_ID: ${{ secrets.LOST_PIXEL_PROJECT_ID }}
