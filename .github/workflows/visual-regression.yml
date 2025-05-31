@@ -22,11 +22,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Serve Ladle
-        run: npm run ladle &
-
-      - name: Wait for Ladle to start
-        run: sleep 15 # Give Ladle some time to start up
+      - name: Build story
+        run: npm run ladle:build
 
       - name: Lost Pixel
         uses: lost-pixel/lost-pixel@v3.4.0

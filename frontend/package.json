@@ -10,7 +10,8 @@
     "lint:format": "biome format --write",
     "start": "remix-serve ./build/server/index.js",
     "typecheck": "tsc",
-    "ladle": "ladle serve --viteConfig vite.ladle.config.ts"
+    "ladle:serve": "ladle serve --viteConfig vite.ladle.config.ts",
+    "ladle:build": "ladle build --viteConfig vite.ladle.config.ts"
   },
   "dependencies": {
     "@remix-run/node": "^2.16.5",
