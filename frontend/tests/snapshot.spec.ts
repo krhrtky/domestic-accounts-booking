@@ -4,7 +4,7 @@ import fetch from "sync-fetch";
 import { argosScreenshot } from "@argos-ci/playwright";
 
 // URL where Ladle is served
-const url = "http://172.17.0.1:61000";
+const url = "http://localhost:61000";
 
 // fetch Ladle's meta file
 // https://ladle.dev/docs/meta
