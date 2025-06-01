@@ -27,9 +27,6 @@ jobs:
       - name: Install Playwright browsers
         run: npm exec playwright install --with-deps
 
-      - name: Serve Ladle
-        run: npm run ladle &
-
       - name: Run tests
         run: npm exec playwright test
         env:
