@@ -1,6 +1,7 @@
 import { test, expect } from "@playwright/test";
 // we can't create tests asynchronously, thus using the sync-fetch lib
 import fetch from "sync-fetch";
+import { argosScreenshot } from "@argos-ci/playwright";
 
 // URL where Ladle is served
 const url = "http://localhost:61000";
@@ -18,6 +19,6 @@ Object.keys(stories).forEach((storyKey) => {
     // stories are code-splitted, wait for them to be loaded
     await page.waitForSelector("[data-storyloaded]");
     // take a screenshot and compare it with the baseline
-    await expect(page).toHaveScreenshot(`${storyKey}.png`);
+    await argosScreenshot(page, `${storyKey}.png`);
   });
 });

@@ -21,6 +21,7 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@argos-ci/playwright": "^5.0.4",
     "@biomejs/biome": "1.9.4",
     "@ladle/react": "^5.0.3",
     "@playwright/test": "^1.52.0",
