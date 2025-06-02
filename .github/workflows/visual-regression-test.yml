@@ -2,8 +2,18 @@ name: Visual regression test
 on:
   push:
     branches: [main]
+    paths:
+      - 'frontend/**/*.stories.tsx'
+      - 'frontend/**/*.stories.ts'
+      - 'frontend/**/*.stories.jsx'
+      - 'frontend/**/*.stories.js'
   pull_request:
     branches: [main]
+    paths:
+      - 'frontend/**/*.stories.tsx'
+      - 'frontend/**/*.stories.ts'
+      - 'frontend/**/*.stories.jsx'
+      - 'frontend/**/*.stories.js'
 jobs:
   e2e:
     runs-on: ubuntu-latest
