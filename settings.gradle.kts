@@ -1,4 +1,5 @@
-rootProject.name = "domestic-accouts-booking"
+pluginManagement { repositories { gradlePluginPortal(); mavenCentral() } }
+rootProject.name = "domestic-accounts-booking"
 
 include(
     "backend",

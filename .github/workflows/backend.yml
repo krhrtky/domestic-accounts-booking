@@ -1,0 +1,35 @@
+name: Backend CI
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'backend/**'
+      - 'build.gradle.kts'
+      - 'settings.gradle.kts'
+      - 'gradle/**'
+      - 'gradlew*'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'backend/**'
+      - 'build.gradle.kts'
+      - 'settings.gradle.kts'
+      - 'gradle/**'
+      - 'gradlew*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Build backend
+        uses: gradle/gradle-build-action@v3
+        with:
+          arguments: build --no-daemon

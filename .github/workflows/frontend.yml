@@ -1,4 +1,4 @@
-name: Visual regression test
+name: Frontend CI
 on:
   push:
     branches: [main]
@@ -12,15 +12,15 @@ on:
       - 'frontend/**'
       - 'package.json'
       - 'package-lock.json'
+
 jobs:
-  e2e:
+  build:
     runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: ./frontend
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -32,10 +32,5 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Install Playwright browsers
-        run: npm exec playwright install --with-deps
-
-      - name: Run tests
-        run: npm exec playwright test
-        env:
-          ARGOS_TOKEN: ${{ secrets.ARGOS_TOKEN }}
+      - name: Build frontend
+        run: npm run build

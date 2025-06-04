@@ -1,0 +1,4 @@
+[versions]
+kotlin = "2.1.20"
+spring-boot = "3.2.5"
+

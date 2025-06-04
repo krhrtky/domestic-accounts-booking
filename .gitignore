@@ -314,3 +314,9 @@ replay_pid*
 
 docs/01_project/
 /.idea/
+
+# Gradle wrapper and build output
+.gradle/
+**/build/
+/gradle/wrapper/gradle-wrapper.jar
+
