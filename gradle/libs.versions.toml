@@ -1,4 +1,11 @@
 [versions]
 kotlin = "2.1.20"
 spring-boot = "3.2.5"
+graphql-kotlin = "7.0.2"
+
+[libraries]
+graphql-kotlin-spring-server = { module = "com.expediagroup:graphql-kotlin-spring-server", version.ref = "graphql-kotlin" }
+
+[plugins]
+graphql-kotlin = { id = "com.expediagroup.graphql", version.ref = "graphql-kotlin" }
 
