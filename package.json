@@ -7,6 +7,8 @@
     "lint": "npm run lint --prefix frontend",
     "start": "npm run start --prefix frontend",
     "typecheck": "npm run typecheck --prefix frontend",
-    "ladle": "npm run ladle --prefix frontend"
+    "ladle": "npm run ladle --prefix frontend",
+    "generate:controllers": "./scripts/generate-controllers.sh",
+    "generate:resolvers": "node scripts/generate-kotlin-resolvers.js"
   }
 }

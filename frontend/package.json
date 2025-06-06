@@ -10,12 +10,21 @@
     "lint:format": "biome format --write",
     "start": "remix-serve ./build/server/index.js",
     "typecheck": "tsc",
-    "ladle": "ladle serve --viteConfig vite.ladle.config.ts"
+    "ladle": "ladle serve --viteConfig vite.ladle.config.ts",
+    "codegen": "graphql-codegen --config codegen.ts",
+    "codegen:watch": "graphql-codegen --config codegen.ts --watch"
   },
   "dependencies": {
+    "@graphql-codegen/cli": "^5.0.7",
+    "@graphql-codegen/typescript": "^4.1.6",
+    "@graphql-codegen/typescript-operations": "^4.6.1",
+    "@graphql-codegen/typescript-react-query": "^6.1.1",
     "@remix-run/node": "^2.16.5",
     "@remix-run/react": "^2.16.5",
     "@remix-run/serve": "^2.16.5",
+    "@tanstack/react-query": "^5.80.6",
+    "graphql": "^16.11.0",
+    "graphql-request": "^7.2.0",
     "isbot": "^4.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
