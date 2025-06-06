@@ -14,11 +14,6 @@ graphql {
     schema {
         packages = listOf("com.example.api.graphql")
     }
-    client {
-        schemaFile = file("${project.rootDir}/interface/schema.graphql")
-        queryFileDirectory = "${project.rootDir}/interface/src/graphql"
-        packageName = "com.example.api.generated"
-    }
 }
 
 java {
