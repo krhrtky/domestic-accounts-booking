@@ -21,7 +21,7 @@
 ### バックエンド（Kotlin/Spring Boot）
 
 #### コア技術
-- **Kotlin 2.1.20** with **Java 21**
+- **Kotlin 2.0.21** with **Java 21**
 - **Spring Boot 3.2.5** フレームワーク
 - **GraphQL API** (graphql-kotlin-spring-server 7.0.2)
 - **MySQL 8.0.43** データベース
