@@ -1,0 +1,84 @@
+server:
+  # ALBからのHTTPトラフィックを受信
+  port: 8080
+  # ALBプロキシヘッダーを信頼
+  forward-headers-strategy: framework
+
+spring:
+  application:
+    name: domestic-accounts-booking
+  
+  # GraphQL設定
+  graphql:
+    websocket:
+      connection-init-timeout: 60s
+    
+  # プロキシ信頼設定（ALB対応）
+  web:
+    # ALBからのX-Forwarded-*ヘッダーを信頼
+    trust-proxy: true
+
+# Spring Boot Actuator（ヘルスチェック用）
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+      base-path: /actuator
+  endpoint:
+    health:
+      show-details: when-authorized
+  server:
+    # セキュリティヘッダー設定
+    add-application-context-header: false
+
+# ログ設定
+logging:
+  level:
+    org.springframework.web: INFO
+    org.springframework.security: INFO
+    root: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+---
+# 開発環境設定
+spring:
+  config:
+    activate:
+      on-profile: dev
+  
+  # 開発環境でのCORS設定（必要に応じて）
+  web:
+    cors:
+      allowed-origins: "http://localhost:3000"
+      allowed-methods: "GET,POST,PUT,DELETE,OPTIONS"
+      allowed-headers: "*"
+      allow-credentials: true
+
+logging:
+  level:
+    org.springframework.web: DEBUG
+    root: DEBUG
+
+---
+# 本番環境設定
+spring:
+  config:
+    activate:
+      on-profile: prod
+
+# 本番環境でのセキュリティ強化
+management:
+  endpoint:
+    health:
+      show-details: never
+  endpoints:
+    web:
+      exposure:
+        include: health
+
+logging:
+  level:
+    root: WARN
+    org.springframework.security: INFO
