@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues/>
+  <CurrentIssues>
+    <ID>FunctionOnlyReturningConstant:HelloController.kt$HelloController$@GetMapping("/hello") fun hello(): String</ID>
+    <ID>InvalidPackageDeclaration:BackendApplication.kt$package com.example</ID>
+    <ID>InvalidPackageDeclaration:Expense.kt$package com.example.expense</ID>
+    <ID>InvalidPackageDeclaration:HelloController.kt$package com.example.api</ID>
+    <ID>InvalidPackageDeclaration:Repositories.kt$package com.example.infrastructure</ID>
+    <ID>InvalidPackageDeclaration:Shared.kt$package com.example.shared</ID>
+    <ID>InvalidPackageDeclaration:User.kt$package com.example.user</ID>
+    <ID>InvalidPackageDeclaration:UserController.kt$package com.example.api.graphql</ID>
+    <ID>MatchingDeclarationName:Repositories.kt$UserRepository</ID>
+    <ID>NewLineAtEndOfFile:UserController.kt$com.example.api.graphql.UserController.kt</ID>
+    <ID>SpreadOperator:BackendApplication.kt$(*args)</ID>
+  </CurrentIssues>
+</SmellBaseline>

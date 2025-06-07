@@ -1,5 +1,5 @@
 [tools]
 gradle = "8.14"
 java = "21.0.2"
-kotlin = "2.1.20"
+kotlin = "2.0.21"
 node = "23.11.0"
