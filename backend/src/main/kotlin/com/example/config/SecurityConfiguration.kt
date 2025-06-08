@@ -12,6 +12,10 @@ import org.springframework.security.web.header.writers.ReferrerPolicyHeaderWrite
 @EnableWebSecurity
 class SecurityConfiguration {
 
+    companion object {
+        private const val HSTS_MAX_AGE_SECONDS = 31536000L // 1年
+    }
+
     @Bean
     fun filterChain(http: HttpSecurity): SecurityFilterChain {
         return http
@@ -23,7 +27,7 @@ class SecurityConfiguration {
                     // HSTS (ALB終端でHTTPS → HTTP変換されるため、プロキシ対応が必要)
                     .httpStrictTransportSecurity { hstsConfig ->
                         hstsConfig
-                            .maxAgeInSeconds(31536000) // 1年
+                            .maxAgeInSeconds(HSTS_MAX_AGE_SECONDS)
                             .includeSubDomains(true)
                             .preload(true)
                     }
@@ -42,7 +46,8 @@ class SecurityConfiguration {
                         // Permissions Policy (旧Feature Policy)
                         response.setHeader(
                             "Permissions-Policy", 
-                            "geolocation=(), camera=(), microphone=(), payment=(), usb=(), vr=(), accelerometer=(), gyroscope=(), magnetometer=(), clipboard-read=(), clipboard-write=()"
+                            "geolocation=(), camera=(), microphone=(), payment=(), usb=(), vr=(), " +
+                            "accelerometer=(), gyroscope=(), magnetometer=(), clipboard-read=(), clipboard-write=()"
                         )
                         // Content Security Policy
                         response.setHeader(
